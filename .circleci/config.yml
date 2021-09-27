@@ -11,9 +11,9 @@ jobs:
 
     steps:
       - checkout
-      - run: mix do deps.get, compile
       - run: mix local.hex --force
       - run: mix local.rebar --force
+      - run: mix do deps.get, compile
       - run: mix test
       - store_test_results:
           path: _build/test/lib/elixir_learning
