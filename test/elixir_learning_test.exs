@@ -3,6 +3,6 @@ defmodule ElixirLearningTest do
   doctest ElixirLearning
 
   test "greets the world" do
-    assert ElixirLearning.hello() == :world
+    assert ElixirLearning.hello() == :test
   end
 end
