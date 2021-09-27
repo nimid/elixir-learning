@@ -6,25 +6,13 @@ jobs:
       - image: circleci/elixir:1.12
         environment:
           MIX_ENV: test
-      - image: circleci/postgres:10.1-alpine
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: app_test
-          POSTGRES_PASSWORD:
 
     working_directory: ~/app
-    executor: ""
+
     steps:
       - checkout
-
       - run: mix local.hex --force
       - run: mix local.rebar --force
-
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
       - run: mix test
-
       - store_test_results:
           path: _build/test/lib/elixir_learning
