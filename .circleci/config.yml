@@ -13,7 +13,7 @@ jobs:
           POSTGRES_PASSWORD:
 
     working_directory: ~/app
-
+    executor: ""
     steps:
       - checkout
 
